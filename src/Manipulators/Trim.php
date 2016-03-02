@@ -52,11 +52,11 @@ class Trim extends BaseManipulator
     public function getTolerance()
     {
         if (!is_numeric($this->trimtol)) {
-            return;
+            return 25;
         }
 
         if ($this->trimtol < 0 or $this->trimtol > 100) {
-            return;
+            return 25;
         }
 
         return (int) $this->trimtol;
