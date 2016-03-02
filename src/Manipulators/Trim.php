@@ -19,12 +19,17 @@ class Trim extends BaseManipulator
      */
     public function run(Image $image)
     {
-        $image->trim(
-            $this->getBase(),
-            $this->getAway(),
-            $this->getTolerance(),
-            $this->getFeather()
-        );
+
+        $base = $this->getBase();
+
+        if ($base) {
+            $image->trim(
+                $this->getBase(),
+                $this->getAway(),
+                $this->getTolerance(),
+                $this->getFeather()
+            );
+        }
 
         return $image;
     }
