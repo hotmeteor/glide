@@ -19,10 +19,7 @@ class Trim extends BaseManipulator
      */
     public function run(Image $image)
     {
-
-        $base = $this->getBase();
-
-        if ($base) {
+        if ($this->trimbase) {
             $image->trim(
                 $this->getBase(),
                 $this->getAway(),
