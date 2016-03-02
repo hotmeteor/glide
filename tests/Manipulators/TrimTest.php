@@ -25,14 +25,14 @@ class TrimTest extends \PHPUnit_Framework_TestCase
 
     public function testRun()
     {
-        // $image = Mockery::mock('Intervention\Image\Image', function ($mock) {
-        //     $mock->shouldReceive('base')->with('top-left')->once();
-        // });
+        $image = Mockery::mock('Intervention\Image\Image', function ($mock) {
+            $mock->shouldReceive('trim')->with('top-left', null, null, null)->once();
+        });
 
-        // $this->assertInstanceOf(
-        //     'Intervention\Image\Image',
-        //     $this->manipulator->setParams(['trimbase' => 'top-left'])->run($image)
-        // );
+        $this->assertInstanceOf(
+            'Intervention\Image\Image',
+            $this->manipulator->setParams(['trimbase' => 'top-left'])->run($image)
+        );
     }
 
     public function testGetBase()
