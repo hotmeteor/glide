@@ -66,6 +66,10 @@ class Trim extends BaseManipulator
             return;
         }
 
+        if ($this->trimfea < 0) {
+            return;
+        }
+
         return (int) $this->trimfea;
     }
 }
