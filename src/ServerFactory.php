@@ -21,6 +21,7 @@ use League\Glide\Manipulators\Orientation;
 use League\Glide\Manipulators\Pixelate;
 use League\Glide\Manipulators\Sharpen;
 use League\Glide\Manipulators\Size;
+use League\Glide\Manipulators\Trim;
 use League\Glide\Manipulators\Watermark;
 use League\Glide\Responses\ResponseFactoryInterface;
 
@@ -204,6 +205,7 @@ class ServerFactory
     {
         return [
             new Orientation(),
+            new Trim(),
             new Crop(),
             new Size($this->getMaxImageSize()),
             new Brightness(),
