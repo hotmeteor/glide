@@ -19,6 +19,13 @@ class Trim extends BaseManipulator
      */
     public function run(Image $image)
     {
+        $image->trim(
+            $this->getBase(),
+            $this->getAway(),
+            $this->getTolerance(),
+            $this->getFeather()
+        );
+
         return $image;
     }
 
@@ -33,9 +40,11 @@ class Trim extends BaseManipulator
 
     public function getAway()
     {
-        return array_filter(explode(',', $this->trimaway), function($side) {
+        $sides = array_filter(explode(',', $this->trimaway), function($side) {
             return in_array($side, ['top', 'bottom', 'left', 'right'], true);
         });
+
+        return empty($sides) ? null : $sides;
     }
 
     public function getTolerance()
